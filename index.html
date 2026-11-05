@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Anower Sha Shajalal Kashmary · AI Engineer</title>
+<meta name="description" content="AI engineer building NLP, LLM and RAG systems with Python, PyTorch and FastAPI. First-author published researcher in multilingual (Bengali) NLP.">
+<meta property="og:title" content="Anower Sha Shajalal Kashmary · AI Engineer">
+<meta property="og:description" content="NLP, LLMs and RAG systems: from fine-tuning to production APIs.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://as-kashmary.github.io/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230d9488'/%3E%3Ctext x='32' y='43' font-family='Arial,sans-serif' font-size='28' font-weight='700' fill='white' text-anchor='middle'%3EAK%3C/text%3E%3C/svg%3E">
+<style>
+  :root {
+    --bg: #fbfbfa; --surface: #ffffff; --text: #1c1f23; --muted: #5b6470;
+    --border: #e4e6e9; --accent: #0d9488; --accent-soft: #e6f6f4; --accent-text: #0b7a70;
+    --shadow: 0 1px 2px rgba(16,24,40,.04), 0 4px 16px rgba(16,24,40,.06);
+    --radius: 14px; --maxw: 1040px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0f1214; --surface: #171b1e; --text: #e8eaed; --muted: #9aa3ad;
+      --border: #262c31; --accent: #2dd4bf; --accent-soft: #12302d; --accent-text: #5eead4;
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 4px 16px rgba(0,0,0,.25);
+    }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font: 16px/1.65 system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent-text); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+
+  /* Nav */
+  header.nav {
+    position: sticky; top: 0; z-index: 10;
+    background: color-mix(in srgb, var(--bg) 85%, transparent);
+    backdrop-filter: saturate(160%) blur(10px); border-bottom: 1px solid var(--border);
+  }
+  .nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 60px; }
+  .brand { font-weight: 700; color: var(--text); letter-spacing: -.01em; }
+  .nav ul { list-style: none; display: flex; gap: 22px; margin: 0; padding: 0; }
+  .nav ul a { color: var(--muted); font-size: 15px; }
+  .nav ul a:hover { color: var(--text); text-decoration: none; }
+  @media (max-width: 720px) { .nav ul { display: none; } }
+
+  /* Hero */
+  .hero { padding: 88px 0 64px; }
+  .eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; color: var(--accent-text);
+    background: var(--accent-soft); padding: 5px 12px; border-radius: 999px; font-weight: 600; }
+  .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+  h1 { font-size: clamp(34px, 5.5vw, 54px); line-height: 1.1; letter-spacing: -.025em; margin: 20px 0 10px; }
+  .role { font-size: clamp(18px, 2.4vw, 22px); color: var(--muted); margin: 0 0 22px; }
+  .lead { max-width: 680px; font-size: 18px; margin: 0 0 30px; }
+  .cta { display: flex; flex-wrap: wrap; gap: 12px; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 11px 18px; border-radius: 10px;
+    font-weight: 600; font-size: 15px; border: 1px solid var(--border); color: var(--text); background: var(--surface); }
+  .btn:hover { text-decoration: none; border-color: var(--accent); }
+  .btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+  @media (prefers-color-scheme: dark) { .btn.primary { color: #062a26; } }
+  .btn svg { width: 18px; height: 18px; fill: currentColor; }
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 52px; }
+  .stat { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 20px; }
+  .stat b { display: block; font-size: 26px; letter-spacing: -.02em; }
+  .stat span { color: var(--muted); font-size: 14px; }
+  @media (max-width: 720px) { .stats { grid-template-columns: repeat(2, 1fr); } }
+
+  /* Sections */
+  section { padding: 56px 0; }
+  h2 { font-size: 28px; letter-spacing: -.02em; margin: 0 0 8px; }
+  .sub { color: var(--muted); margin: 0 0 32px; }
+
+  /* Experience */
+  .timeline { position: relative; display: grid; gap: 18px; }
+  .job { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px 24px; box-shadow: var(--shadow); }
+  .job-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 16px; align-items: baseline; }
+  .job h3 { margin: 0; font-size: 18px; }
+  .job .org { color: var(--accent-text); font-weight: 600; }
+  .job .when { color: var(--muted); font-size: 14px; white-space: nowrap; }
+  .job ul { margin: 12px 0 0; padding-left: 20px; }
+  .job li { margin: 4px 0; }
+
+  /* Projects */
+  .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+  @media (max-width: 760px) { .grid { grid-template-columns: 1fr; } }
+  .card { display: flex; flex-direction: column; background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 22px 24px; box-shadow: var(--shadow); transition: transform .15s, border-color .15s; }
+  .card:hover { transform: translateY(-2px); border-color: color-mix(in srgb, var(--accent) 45%, var(--border)); }
+  @media (prefers-reduced-motion: reduce) { .card { transition: none; } .card:hover { transform: none; } }
+  .card .kind { font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+  .card h3 { margin: 6px 0 8px; font-size: 19px; letter-spacing: -.01em; }
+  .card p { margin: 0 0 14px; color: var(--text); }
+  .card .result { background: var(--accent-soft); color: var(--accent-text); border-radius: 8px; padding: 8px 12px; font-size: 14px; font-weight: 600; margin-bottom: 14px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; padding-top: 4px; }
+  .tag { font-size: 12.5px; padding: 3px 9px; border-radius: 999px; border: 1px solid var(--border); color: var(--muted); }
+  .links { display: flex; gap: 16px; margin-top: 14px; font-size: 14px; font-weight: 600; }
+
+  /* Research */
+  .pub { background: var(--surface); border: 1px solid var(--border); border-left: 4px solid var(--accent);
+    border-radius: var(--radius); padding: 20px 24px; box-shadow: var(--shadow); }
+  .pub h3 { margin: 0 0 6px; font-size: 17px; }
+  .pub p { margin: 0; color: var(--muted); }
+
+  /* Skills */
+  .skills { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+  @media (max-width: 760px) { .skills { grid-template-columns: 1fr; } }
+  .skill { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px 24px; }
+  .skill h3 { margin: 0 0 12px; font-size: 15px; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: .05em; }
+  .skill .tags .tag { font-size: 13.5px; color: var(--text); background: var(--bg); }
+
+  /* Highlights */
+  .hl { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  @media (max-width: 760px) { .hl { grid-template-columns: 1fr; } }
+  .hl li { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; }
+  .hl b { display: block; }
+  .hl span { color: var(--muted); font-size: 14.5px; }
+
+  /* Contact */
+  .contact { text-align: center; background: var(--surface); border: 1px solid var(--border); border-radius: 20px;
+    padding: 48px 24px; box-shadow: var(--shadow); }
+  .contact .cta { justify-content: center; }
+  footer { color: var(--muted); font-size: 14px; text-align: center; padding: 36px 0 48px; }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top">AS Kashmary</a>
+    <nav aria-label="Primary">
+      <ul>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <!-- Hero -->
+  <div class="wrap hero">
+    <span class="eyebrow"><span class="dot" aria-hidden="true"></span>Open to AI/ML engineering roles</span>
+    <h1>Anower Sha Shajalal Kashmary</h1>
+    <p class="role">AI Engineer · NLP, LLMs &amp; RAG systems · Dhaka, Bangladesh</p>
+    <p class="lead">I build and deploy LLM applications end to end: fine-tuning language models with LoRA/QLoRA, building RAG and conversational systems, and shipping them as FastAPI services on AWS. I'm also a first-author published researcher in multilingual NLP, focused on Bengali.</p>
+    <div class="cta">
+      <a class="btn primary" href="mailto:askashmary@gmail.com">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4.2-8 5-8-5V6l8 5 8-5v2.2Z"/></svg>
+        Email me</a>
+      <a class="btn" href="https://www.linkedin.com/in/as-kashmary/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg>
+        LinkedIn</a>
+      <a class="btn" href="https://github.com/as-kashmary" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57v-2c-3.34.73-4.04-1.6-4.04-1.6-.55-1.4-1.34-1.77-1.34-1.77-1.08-.74.09-.73.09-.73 1.2.09 1.83 1.24 1.83 1.24 1.07 1.83 2.8 1.3 3.49 1 .1-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.63-5.48 5.92.42.36.81 1.1.81 2.22v3.29c0 .32.22.7.82.58A12 12 0 0 0 12 .3Z"/></svg>
+        GitHub</a>
+      <a class="btn" href="https://huggingface.co/as-kashmary" target="_blank" rel="noopener">🤗 Hugging Face</a>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><b>1 yr 9 mo</b><span>industry AI experience</span></div>
+      <div class="stat"><b>85.3%</b><span>Bengali intent accuracy (English test set)</span></div>
+      <div class="stat"><b>1</b><span>first-author ACL Anthology paper</span></div>
+      <div class="stat"><b>400+</b><span>algorithm problems solved</span></div>
+    </div>
+  </div>
+
+  <!-- Experience -->
+  <section id="experience">
+    <div class="wrap">
+      <h2>Experience</h2>
+      <p class="sub">Building and shipping LLM systems for clients and research teams.</p>
+      <div class="timeline">
+        <article class="job">
+          <div class="job-head">
+            <h3>AI Systems Developer (Contract) · <span class="org">BETS Consulting Services Ltd.</span></h3>
+            <span class="when">Feb 2026 – Sep 2026 · Remote</span>
+          </div>
+          <ul>
+            <li>Designed and deployed an end-to-end system that analyzes CVs against terms of reference (TORs): a FastAPI service that uses the OpenAI API for analysis and Qdrant for semantic matching.</li>
+            <li>Moved long LLM and document-processing jobs to Celery/Redis so the API stays responsive under load.</li>
+            <li>Containerized with Docker and deployed on AWS EC2/Lambda with CI/CD through GitHub Actions.</li>
+          </ul>
+        </article>
+        <article class="job">
+          <div class="job-head">
+            <h3>Project Associate, R&amp;D (Contract) · <span class="org">Dotlines Bangladesh</span></h3>
+            <span class="when">Nov 2025 – Jan 2026 · Remote</span>
+          </div>
+          <ul>
+            <li>Built core RAG components (LangChain, Pinecone) for retrieval over each tenant's own data in a multi-tenant web application.</li>
+            <li>Developed the REST APIs (FastAPI, MySQL) that serve these RAG features to the application.</li>
+          </ul>
+        </article>
+        <article class="job">
+          <div class="job-head">
+            <h3>Research Assistant · <span class="org">Hackules Institute of Advanced Research</span></h3>
+            <span class="when">Jan 2025 – Oct 2025 · Remote</span>
+          </div>
+          <ul>
+            <li>Fine-tuned scientific LLMs with LoRA/QLoRA and ran model inference.</li>
+            <li>Built web-scraping and OCR data pipelines that produce training data, stored on AWS S3.</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects">
+    <div class="wrap">
+      <h2>Projects</h2>
+      <p class="sub">Research and engineering work, from model training to production APIs.</p>
+      <div class="grid">
+        <article class="card">
+          <span class="kind">Research</span>
+          <h3>Decision Models for Bengali Intent Detection</h3>
+          <p>Fine-tuned Qwen3.5-0.8B to score every candidate intent in a single forward pass, without generating text. I evaluated it on English, Bengali, Romanized Bengali and code-mixed text, comparing direct, sequential and joint fine-tuning.</p>
+          <div class="result">Joint training: 85.3% English / 79.3% Bengali accuracy, beating sequential transfer and an XLM-R baseline (McNemar-significant)</div>
+          <div class="tags"><span class="tag">PyTorch</span><span class="tag">Transformers</span><span class="tag">Qwen</span><span class="tag">Multilingual NLP</span></div>
+          <div class="links"><a href="https://github.com/as-kashmary/Decision-Models-for-Bengali" target="_blank" rel="noopener">Code &amp; results →</a></div>
+        </article>
+
+        <article class="card">
+          <span class="kind">Undergraduate thesis</span>
+          <h3>BenSCI: Bengali Scientific Reasoning</h3>
+          <p>A three-agent LLM pipeline that answers Bengali scientific multiple-choice questions on BenQA. I benchmarked five small language models (0.6B–5B) and identified bottlenecks in decoding budget and verifier reliability.</p>
+          <div class="tags"><span class="tag">PyTorch</span><span class="tag">LangChain</span><span class="tag">Qwen3</span><span class="tag">DeepSeek-R1-Distill</span></div>
+        </article>
+
+        <article class="card">
+          <span class="kind">RAG · Multi-tenant</span>
+          <h3>RChatbot</h3>
+          <p>Companies upload product documents through an admin panel and users chat over them. Documents are embedded locally with multilingual-e5 to keep data private, retrieved from ChromaDB, and answered with streamed LLM responses. Tenants are stored in MySQL.</p>
+          <div class="tags"><span class="tag">FastAPI</span><span class="tag">LangChain</span><span class="tag">ChromaDB</span><span class="tag">Ollama</span><span class="tag">MySQL</span></div>
+          <div class="links"><a href="https://github.com/as-kashmary/RChatbot" target="_blank" rel="noopener">GitHub →</a></div>
+        </article>
+
+        <article class="card">
+          <span class="kind">RAG · Hybrid retrieval</span>
+          <h3>MT_RAG</h3>
+          <p>A multi-tenant RAG platform with separate admin and user services. It uses semantic chunking and hybrid retrieval that fuses BM25 keyword scores with Pinecone vector search, with a separate namespace for each tenant, plus query classification and scheduled jobs.</p>
+          <div class="tags"><span class="tag">FastAPI</span><span class="tag">LangChain</span><span class="tag">Pinecone</span><span class="tag">BM25</span><span class="tag">Docker</span></div>
+          <div class="links"><a href="https://github.com/as-kashmary/MT_RAG" target="_blank" rel="noopener">GitHub →</a></div>
+        </article>
+
+        <article class="card">
+          <span class="kind">Healthcare AI · Team project</span>
+          <h3>HealthPort</h3>
+          <p>A healthcare AI microservice that recommends the right medical department, using semantic search over more than 493K disease–symptom mappings.</p>
+          <div class="tags"><span class="tag">FastAPI</span><span class="tag">Sentence Transformers</span><span class="tag">ChromaDB</span></div>
+          <div class="links"><a href="https://github.com/SM-Shaan/HealthPort" target="_blank" rel="noopener">GitHub →</a></div>
+        </article>
+
+        <article class="card">
+          <span class="kind">LLM backend</span>
+          <h3>ZenStore AI</h3>
+          <p>An async FastAPI service that writes marketing descriptions for products with a local Ollama LLM. It processes bulk uploads in the background, uses JWT authentication and stores data in MySQL through async SQLAlchemy.</p>
+          <div class="tags"><span class="tag">FastAPI</span><span class="tag">Ollama</span><span class="tag">SQLAlchemy</span><span class="tag">MySQL</span><span class="tag">JWT</span></div>
+          <div class="links"><a href="https://github.com/as-kashmary/Zenstore-AI" target="_blank" rel="noopener">GitHub →</a></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Research -->
+  <section id="research">
+    <div class="wrap">
+      <h2>Publication</h2>
+      <p class="sub">Peer-reviewed work in multilingual NLP.</p>
+      <div class="pub">
+        <h3>CUET_Blitz_Aces@LT-EDI-2025: Leveraging Transformer Ensembles and Majority Voting for Hate Speech Detection</h3>
+        <p>First author · LT-EDI 2025 shared task · ACL Anthology</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills">
+    <div class="wrap">
+      <h2>Skills</h2>
+      <p class="sub">Tools I use to take models from notebooks to production.</p>
+      <div class="skills">
+        <div class="skill"><h3>AI / ML / NLP</h3><div class="tags">
+          <span class="tag">PyTorch</span><span class="tag">HF Transformers</span><span class="tag">LoRA / QLoRA</span><span class="tag">RAG</span><span class="tag">OpenAI API</span><span class="tag">Ollama</span><span class="tag">Prompt engineering</span><span class="tag">LLM evaluation</span></div></div>
+        <div class="skill"><h3>Backend &amp; data</h3><div class="tags">
+          <span class="tag">FastAPI</span><span class="tag">Celery</span><span class="tag">LangChain</span><span class="tag">REST APIs</span><span class="tag">Pandas</span><span class="tag">Qdrant</span><span class="tag">Pinecone</span><span class="tag">ChromaDB</span><span class="tag">MySQL</span><span class="tag">MongoDB</span><span class="tag">Redis</span></div></div>
+        <div class="skill"><h3>DevOps</h3><div class="tags">
+          <span class="tag">Docker</span><span class="tag">AWS EC2</span><span class="tag">AWS Lambda</span><span class="tag">AWS S3</span><span class="tag">GitHub Actions</span><span class="tag">Git</span><span class="tag">n8n</span></div></div>
+        <div class="skill"><h3>Languages</h3><div class="tags">
+          <span class="tag">Python</span><span class="tag">C++</span><span class="tag">JavaScript</span><span class="tag">Java</span><span class="tag">SQL</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Highlights -->
+  <section id="highlights">
+    <div class="wrap">
+      <h2>Education &amp; highlights</h2>
+      <p class="sub">Degree, certification, competitions and leadership.</p>
+      <ul class="hl">
+        <li><b>B.Sc. in Computer Science &amp; Engineering</b><span>Chittagong University of Engineering &amp; Technology (CUET) · CGPA 3.54 · 2022–2026</span></li>
+        <li><b>Machine Learning Specialization</b><span>DeepLearning.AI &amp; Stanford Online (Coursera)</span></li>
+        <li><b>27th of 124 teams in DL Sprint 4.0 Bengali long-form speech recognition</b><span>Also 27th of 107 teams in Bengali speaker diarization</span></li>
+        <li><b>Chair, ML Wing, IEEE CS CUET Student Branch</b><span>Head Organizer, Datathon at CUET CSE FEST 2025</span></li>
+        <li><b>400+ algorithm problems solved</b><span>Codeforces, CodeChef and LeetCode</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="wrap">
+      <div class="contact">
+        <h2>Let's work together</h2>
+        <p class="sub">I'm looking for AI/ML engineering roles, remote or on-site. The fastest way to reach me is email.</p>
+        <div class="cta">
+          <a class="btn primary" href="mailto:askashmary@gmail.com">askashmary@gmail.com</a>
+          <a class="btn" href="https://www.linkedin.com/in/as-kashmary/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn" href="https://github.com/as-kashmary" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn" href="https://www.kaggle.com/as-kashmary" target="_blank" rel="noopener">Kaggle</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>© 2026 Anower Sha Shajalal Kashmary</footer>
+</body>
+</html>
